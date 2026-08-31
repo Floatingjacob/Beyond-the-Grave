@@ -56,7 +56,7 @@ autoplay = true
 [node name="RainParticles" type="CPUParticles2D" parent="." unique_id=1765248959]
 z_index = -2
 position = Vector2(572, -172)
-amount = 100
+amount = 300
 texture = ExtResource("7_5o0dd")
 lifetime = 2.0
 preprocess = 3.0

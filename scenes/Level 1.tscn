@@ -65,7 +65,7 @@ script = ExtResource("3_kbmnf")
 [node name="RainParticles" type="CPUParticles2D" parent="." unique_id=770641818]
 z_index = 10
 position = Vector2(4994, -244)
-amount = 500
+amount = 2000
 texture = ExtResource("6_oecem")
 lifetime = 2.0
 preprocess = 3.0
