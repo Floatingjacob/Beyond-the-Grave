@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://ba8587mppk6ns"]
+
+[ext_resource type="Texture2D" uid="uid://bvar5objy8gpm" path="res://assets/textures/terrain/grass.png" id="1_b4wkg"]
+
+[node name="Grass" type="Sprite2D" unique_id=314888484]
+modulate = Color(0.30588236, 0.30588236, 0.30588236, 1)
+position = Vector2(720, -25)
+texture = ExtResource("1_b4wkg")
+
+[node name="Collision" type="StaticBody2D" parent="." unique_id=90144814]
+visible = false
+
+[node name="Collison" type="CollisionPolygon2D" parent="Collision" unique_id=1913211858]
+polygon = PackedVector2Array(-720, 25, -670, 8, -647, 9, -600, 0, -578, 0, -524, 10, -465, 12, -446, 15, -398, 15, -361, 11, -338, 11, -291, 13, -274, 13, -258, 13, -228, 15, -177, 27, -160, 31, -114, 32, -66, 31, -21, 24, -3, 17, 33, 12, 72, 12, 137, 22, 179, 22, 214, 13, 251, 13, 301, 22, 331, 28, 353, 36, 394, 38, 406, 30, 442, 24, 470, 23, 502, 13, 572, 11, 584, 20, 591, 15, 635, 21, 719, 31, 719, 135, -721, 135)

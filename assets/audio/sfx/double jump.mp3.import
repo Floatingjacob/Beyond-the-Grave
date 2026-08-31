@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dv6nmc4cuoakn"
+path="res://.godot/imported/double jump.mp3-89db759cf4b968038b4e422597efc69e.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/double jump.mp3"
+dest_files=["res://.godot/imported/double jump.mp3-89db759cf4b968038b4e422597efc69e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

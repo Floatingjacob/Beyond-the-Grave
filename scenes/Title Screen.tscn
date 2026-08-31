@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://d0dew4plwhl32"]
+
+[ext_resource type="Script" uid="uid://cbpseyrp86251" path="res://scripts/scenes/title_screen.gd" id="1_2ddsv"]
+[ext_resource type="Texture2D" uid="uid://dpgrjrqcgkayt" path="res://assets/title.png" id="1_83fn4"]
+[ext_resource type="FontFile" uid="uid://cgwqypji46eqh" path="res://assets/OldNewspaperTypes.ttf" id="2_1lrr1"]
+[ext_resource type="Script" uid="uid://dwyikq4muae70" path="res://scripts/scenes/title scene/start.gd" id="2_aw7pl"]
+[ext_resource type="AudioStream" uid="uid://cdw44eukgdjwy" path="res://assets/audio/music/Title.mp3" id="4_aw7pl"]
+[ext_resource type="Script" uid="uid://dwtqiadc6g3ay" path="res://scripts/quit.gd" id="5_2ddsv"]
+[ext_resource type="Script" uid="uid://burgq0yv5yivn" path="res://scripts/loop.gd" id="5_axgku"]
+[ext_resource type="AudioStream" uid="uid://di36cvfq64ev0" path="res://assets/audio/ambient/Rain.mp3" id="6_5o0dd"]
+[ext_resource type="Texture2D" uid="uid://bb3jkf6ehqwg2" path="res://assets/textures/particles/basic.png" id="7_5o0dd"]
+
+[node name="TitleScreen" type="Node2D" unique_id=456867659]
+texture_filter = 1
+script = ExtResource("1_2ddsv")
+
+[node name="Title" type="Sprite2D" parent="." unique_id=1358777418]
+position = Vector2(579, 290.40002)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_83fn4")
+
+[node name="Start" type="Button" parent="." unique_id=365588732]
+clip_contents = true
+offset_left = 512.0
+offset_top = 464.0
+offset_right = 581.0
+offset_bottom = 514.0
+theme_override_fonts/font = ExtResource("2_1lrr1")
+theme_override_font_sizes/font_size = 30
+text = "Play"
+flat = true
+script = ExtResource("2_aw7pl")
+
+[node name="Quit" type="Button" parent="." unique_id=1015766773]
+clip_contents = true
+offset_left = 512.0
+offset_top = 544.0
+offset_right = 585.0
+offset_bottom = 594.0
+theme_override_fonts/font = ExtResource("2_1lrr1")
+theme_override_font_sizes/font_size = 30
+text = "Quit"
+flat = true
+script = ExtResource("5_2ddsv")
+
+[node name="BGM" type="AudioStreamPlayer" parent="." unique_id=61322539]
+stream = ExtResource("4_aw7pl")
+autoplay = true
+script = ExtResource("5_axgku")
+
+[node name="Rain" type="AudioStreamPlayer" parent="." unique_id=1480855340]
+stream = ExtResource("6_5o0dd")
+volume_db = -8.0
+autoplay = true
+
+[node name="RainParticles" type="CPUParticles2D" parent="." unique_id=1765248959]
+z_index = -2
+position = Vector2(572, -172)
+amount = 100
+texture = ExtResource("7_5o0dd")
+lifetime = 2.0
+preprocess = 3.0
+emission_shape = 3
+emission_rect_extents = Vector2(600, 1)
+gravity = Vector2(0, 500)
+color = Color(0.25202772, 0.2520276, 0.25202766, 1)

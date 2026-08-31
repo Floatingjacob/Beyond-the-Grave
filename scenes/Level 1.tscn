@@ -1,0 +1,283 @@
+[gd_scene format=4 uid="uid://c1g2f6l8r30pv"]
+
+[ext_resource type="Script" uid="uid://beroww4hhlhhb" path="res://scripts/scenes/Level 1.gd" id="1_1qb7c"]
+[ext_resource type="AudioStream" uid="uid://cqe3hehtc70at" path="res://assets/audio/music/Level 1.mp3" id="2_gpsl1"]
+[ext_resource type="PackedScene" uid="uid://ba8587mppk6ns" path="res://reusables/grass.tscn" id="2_ymo8b"]
+[ext_resource type="Script" uid="uid://burgq0yv5yivn" path="res://scripts/loop.gd" id="3_kbmnf"]
+[ext_resource type="AudioStream" uid="uid://d3wldtewex8sm" path="res://assets/audio/ambient/Thunder Storm.mp3" id="4_8iqp6"]
+[ext_resource type="Texture2D" uid="uid://bb3jkf6ehqwg2" path="res://assets/textures/particles/basic.png" id="6_oecem"]
+[ext_resource type="Texture2D" uid="uid://ccbyt4untds0u" path="res://assets/textures/parallax/bg.png" id="7_wfl0k"]
+[ext_resource type="PackedScene" uid="uid://xdbko00ju3eh" path="res://reusables/Ghost.tscn" id="8_dyqk6"]
+[ext_resource type="Texture2D" uid="uid://bvar5objy8gpm" path="res://assets/textures/terrain/grass.png" id="9_wfl0k"]
+[ext_resource type="Texture2D" uid="uid://f15do7c5yba2" path="res://assets/textures/parallax/mountains2.png" id="11_l161d"]
+[ext_resource type="Texture2D" uid="uid://ijmub8a41l4n" path="res://assets/textures/terrain/graves.png" id="12_3qrju"]
+[ext_resource type="Texture2D" uid="uid://dh6o640q430f" path="res://assets/textures/lighting/lighting.png" id="13_3qrju"]
+[ext_resource type="PackedScene" uid="uid://c54ulpaiiytig" path="res://reusables/RainGhost.tscn" id="14_q1dv6"]
+[ext_resource type="PackedScene" uid="uid://cmvlohq7i5hrh" path="res://reusables/Hands of Death.tscn" id="15_nfqf5"]
+[ext_resource type="Texture2D" uid="uid://chbrtd3ywkiii" path="res://assets/textures/terrain/cross.png" id="16_4ti40"]
+[ext_resource type="Texture2D" uid="uid://bt1waeoclp6hp" path="res://assets/textures/misc/temple1.png" id="17_sl3q7"]
+[ext_resource type="Texture2D" uid="uid://otv3n1pwxv3w" path="res://assets/textures/misc/temple2.png" id="18_l161d"]
+[ext_resource type="Texture2D" uid="uid://cn8aby8k4if3w" path="res://assets/textures/misc/entrance.png" id="19_l161d"]
+[ext_resource type="PackedScene" uid="uid://v1611apwtn5c" path="res://reusables/BaiLing.tscn" id="20_sgdum"]
+[ext_resource type="Texture2D" uid="uid://imyl5cjw4kfd" path="res://assets/textures/parallax/crossgrass.png" id="20_yv7nf"]
+[ext_resource type="FontFile" uid="uid://cgwqypji46eqh" path="res://assets/OldNewspaperTypes.ttf" id="21_sgdum"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_gpsl1"]
+scenes/1/scene = ExtResource("2_ymo8b")
+scenes/1/display_placeholder = true
+
+[sub_resource type="TileSet" id="TileSet_dw041"]
+sources/1 = SubResource("TileSetScenesCollectionSource_gpsl1")
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ynlpw"]
+normal = Vector2(0.99994457, -0.010525732)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ynlpw"]
+a = Vector2(-530, 303)
+b = Vector2(-779, -341)
+
+[node name="Level 1" type="Node2D" unique_id=1891565693]
+texture_filter = 1
+script = ExtResource("1_1qb7c")
+
+[node name="Crossgrass" type="Sprite2D" parent="." unique_id=907643501]
+z_index = 2
+position = Vector2(8426, 400)
+scale = Vector2(2, 2)
+texture = ExtResource("20_yv7nf")
+
+[node name="Ground" type="TileMapLayer" parent="." unique_id=1780379948]
+position = Vector2(-7, -50)
+tile_map_data = PackedByteArray("AAAtACIAAAAAAAAAAACHACIAAAAAAAAAAADhACIAAAAAAAAAAAAAACkAAQAAAAAAAQBaACkAAQAAAAAAAQC0ACkAAQAAAAAAAQAOASkAAQAAAAAAAQBoASkAAQAAAAAAAQDCASkAAQAAAAAAAQAcAikAAQAAAAAAAQA=")
+tile_set = SubResource("TileSet_dw041")
+
+[node name="BGM" type="AudioStreamPlayer" parent="." unique_id=615825422]
+stream = ExtResource("2_gpsl1")
+autoplay = true
+script = ExtResource("3_kbmnf")
+
+[node name="Rain" type="AudioStreamPlayer" parent="." unique_id=523880773]
+stream = ExtResource("4_8iqp6")
+volume_db = -5.0
+autoplay = true
+script = ExtResource("3_kbmnf")
+
+[node name="RainParticles" type="CPUParticles2D" parent="." unique_id=770641818]
+z_index = 10
+position = Vector2(4994, -244)
+amount = 500
+texture = ExtResource("6_oecem")
+lifetime = 2.0
+preprocess = 3.0
+emission_shape = 3
+emission_rect_extents = Vector2(5100, 1)
+gravity = Vector2(0, 500)
+color = Color(0.25202772, 0.2520276, 0.25202766, 1)
+
+[node name="Midground" type="Parallax2D" parent="." unique_id=678103040]
+z_index = -3
+scroll_scale = Vector2(0.5, 0.5)
+scroll_offset = Vector2(-477, 3)
+repeat_size = Vector2(2880, 0)
+
+[node name="Lighting" type="PointLight2D" parent="Midground" unique_id=1555346335]
+position = Vector2(1176, 460)
+color = Color(0.87058824, 0.011764706, 0.011764706, 1)
+range_item_cull_mask = 4
+texture = ExtResource("13_3qrju")
+
+[node name="Grass" type="Sprite2D" parent="Midground" unique_id=920340460]
+light_mask = 4
+z_index = -2
+position = Vector2(1423, 375)
+scale = Vector2(2, 2)
+texture = ExtResource("9_wfl0k")
+flip_h = true
+
+[node name="Graves" type="Sprite2D" parent="Midground" unique_id=1961011039]
+light_mask = 8
+position = Vector2(1292, 417)
+scale = Vector2(1, 1.2148148)
+texture = ExtResource("12_3qrju")
+
+[node name="Lighting2" type="PointLight2D" parent="Midground" unique_id=2041313369]
+position = Vector2(2354, 473)
+color = Color(0.87058824, 0.011764706, 0.011764706, 1)
+range_item_cull_mask = 4
+texture = ExtResource("13_3qrju")
+
+[node name="Graves2" type="Sprite2D" parent="Midground" unique_id=296904411]
+light_mask = 8
+position = Vector2(2584, 417)
+scale = Vector2(1, 1.2148148)
+texture = ExtResource("12_3qrju")
+
+[node name="Lighting3" type="PointLight2D" parent="Midground" unique_id=639524622]
+position = Vector2(4563, 438)
+color = Color(0.87058824, 0.011764706, 0.011764706, 1)
+range_item_cull_mask = 4
+texture = ExtResource("13_3qrju")
+
+[node name="Mountains" type="Parallax2D" parent="." unique_id=1771428654]
+z_index = -6
+scroll_scale = Vector2(0.4, 0.4)
+scroll_offset = Vector2(-99, 28)
+
+[node name="Mountains" type="Sprite2D" parent="Mountains" unique_id=1623249248]
+position = Vector2(1457, 352)
+scale = Vector2(2, 2)
+texture = ExtResource("11_l161d")
+
+[node name="Collisions" type="StaticBody2D" parent="." unique_id=247692966]
+
+[node name="LeftBoundry" type="CollisionShape2D" parent="Collisions" unique_id=647840691]
+position = Vector2(-42, 638)
+shape = SubResource("WorldBoundaryShape2D_ynlpw")
+
+[node name="Ghost" parent="." unique_id=651949710 instance=ExtResource("8_dyqk6")]
+z_index = -1
+position = Vector2(1657, 489.00003)
+
+[node name="Ghost2" parent="." unique_id=904241578 instance=ExtResource("8_dyqk6")]
+z_index = -1
+position = Vector2(3663, 514)
+
+[node name="RainGhost" parent="." unique_id=383849682 instance=ExtResource("14_q1dv6")]
+position = Vector2(5926, 107)
+max_distance = 500
+
+[node name="Hands of Death" parent="." unique_id=1782197374 instance=ExtResource("15_nfqf5")]
+z_index = 1
+position = Vector2(7648, 581)
+
+[node name="Cross" type="Sprite2D" parent="Hands of Death" unique_id=1414667065]
+z_index = -1
+position = Vector2(-50, -118)
+scale = Vector2(2, 2)
+texture = ExtResource("16_4ti40")
+
+[node name="Collision" type="StaticBody2D" parent="Hands of Death/Cross" unique_id=302397603]
+visible = false
+
+[node name="Collision" type="CollisionPolygon2D" parent="Hands of Death/Cross/Collision" unique_id=549481323]
+polygon = PackedVector2Array(28, -18, 20, -7, 36, 16, -24, 82, -19, 92, -10, 91, 47, 30, 71, 54, 83, 43, 63, 18, 108, -32, 99, -44, 52, 4)
+
+[node name="Sky" type="Parallax2D" parent="." unique_id=219275491]
+z_index = -1
+scroll_scale = Vector2(0.2, 0.2)
+scroll_offset = Vector2(17, 3)
+repeat_size = Vector2(1440, 0)
+
+[node name="Sky" type="Sprite2D" parent="Sky" unique_id=2078365612]
+z_index = -11
+position = Vector2(1425, 270)
+scale = Vector2(2, 2)
+texture = ExtResource("7_wfl0k")
+
+[node name="Shade" type="ColorRect" parent="." unique_id=1127007944]
+z_index = 5
+offset_right = 10087.0
+offset_bottom = 953.0
+color = Color(0, 0, 0, 0.26666668)
+
+[node name="Temple" type="Sprite2D" parent="." unique_id=1867920532]
+z_index = -1
+position = Vector2(9692, 318.00003)
+scale = Vector2(3, 3.286458)
+texture = ExtResource("17_sl3q7")
+
+[node name="Temple2" type="Sprite2D" parent="Temple" unique_id=1756043131]
+z_index = 1
+position = Vector2(78.33325, 11.486542)
+scale = Vector2(1, 0.9906594)
+texture = ExtResource("18_l161d")
+
+[node name="Entrance" type="Sprite2D" parent="Temple" unique_id=1406976775]
+z_index = -1
+position = Vector2(60.333294, 5.6291733)
+texture = ExtResource("19_l161d")
+
+[node name="Event" type="Area2D" parent="Temple" unique_id=1738987430]
+position = Vector2(-1883.6667, -89.61015)
+scale = Vector2(0.33333334, 0.30427897)
+
+[node name="Collision" type="CollisionShape2D" parent="Temple/Event" unique_id=2049005397]
+position = Vector2(5317, 301)
+shape = SubResource("SegmentShape2D_ynlpw")
+
+[node name="Bai Ling" parent="." unique_id=1007260383 instance=ExtResource("20_sgdum")]
+z_index = -1
+position = Vector2(147, 529)
+Limit_Left = 0
+Limit_Top = 0
+Limit_Right = 10071
+Limit_Bottom = 650
+
+[node name="Tutorial Text" type="Node2D" parent="." unique_id=73457198]
+position = Vector2(1037, 465)
+
+[node name="move" type="RichTextLabel" parent="Tutorial Text" unique_id=1685309721]
+offset_left = -986.0
+offset_top = -47.0
+offset_right = -761.0
+offset_bottom = -7.0
+theme_override_fonts/normal_font = ExtResource("21_sgdum")
+theme_override_font_sizes/normal_font_size = 20
+text = "Press A or D to move"
+fit_content = true
+scroll_active = false
+
+[node name="transform" type="RichTextLabel" parent="Tutorial Text" unique_id=853917900]
+offset_left = 115.0
+offset_top = -4.0
+offset_right = 340.0
+offset_bottom = 46.0
+theme_override_fonts/normal_font = ExtResource("21_sgdum")
+theme_override_font_sizes/normal_font_size = 20
+text = "Press C to transform into a cat"
+fit_content = true
+scroll_active = false
+
+[node name="shoot" type="RichTextLabel" parent="Tutorial Text" unique_id=1198121713]
+offset_left = 115.0
+offset_top = -10.0
+offset_right = 340.0
+offset_bottom = 65.0
+theme_override_fonts/normal_font = ExtResource("21_sgdum")
+theme_override_font_sizes/normal_font_size = 20
+text = "In human form, press left-click to shoot a spell"
+fit_content = true
+scroll_active = false
+
+[node name="non solid" type="RichTextLabel" parent="Tutorial Text" unique_id=1600571741]
+offset_left = 115.0
+offset_top = -10.0
+offset_right = 340.0
+offset_bottom = 65.0
+theme_override_fonts/normal_font = ExtResource("21_sgdum")
+theme_override_font_sizes/normal_font_size = 20
+text = "If a ghost rushes at you, press and hold Shift in human form to become non-solid"
+fit_content = true
+scroll_active = false
+
+[node name="explain ghost visibility" type="RichTextLabel" parent="Tutorial Text" unique_id=256653547]
+offset_left = 1770.0
+offset_top = -10.0
+offset_right = 1995.0
+offset_bottom = 65.0
+theme_override_fonts/normal_font = ExtResource("21_sgdum")
+theme_override_font_sizes/normal_font_size = 20
+text = "Ghosts are only visible to you when you are in cat form"
+fit_content = true
+scroll_active = false
+
+[node name="jump" type="RichTextLabel" parent="Tutorial Text" unique_id=588949946]
+offset_left = 6119.0
+offset_top = 4.0
+offset_right = 6344.0
+offset_bottom = 79.0
+theme_override_fonts/normal_font = ExtResource("21_sgdum")
+theme_override_font_sizes/normal_font_size = 20
+text = "In cat form, press Space to jump"
+fit_content = true
+scroll_active = false

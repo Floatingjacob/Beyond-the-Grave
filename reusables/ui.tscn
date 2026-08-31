@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://bvvftpbaiyeve"]
+
+[ext_resource type="Texture2D" uid="uid://cv06qfr7tepkm" path="res://assets/textures/ui/heart.png" id="1_5av22"]
+[ext_resource type="Texture2D" uid="uid://bt8osls3xxjq7" path="res://assets/textures/ui/textbox.png" id="2_32lsi"]
+[ext_resource type="Texture2D" uid="uid://y2wkmv3a6vsd" path="res://assets/textures/ui/nameplate.png" id="3_4oi1v"]
+[ext_resource type="Script" uid="uid://c8gowhbdjby5i" path="res://scripts/text.gd" id="3_gu1bn"]
+[ext_resource type="FontFile" uid="uid://cgwqypji46eqh" path="res://assets/OldNewspaperTypes.ttf" id="4_gu1bn"]
+[ext_resource type="Texture2D" uid="uid://8542xp124dey" path="res://assets/textures/particles/projectile.png" id="6_gu1bn"]
+
+[node name="Ui" type="CanvasLayer" unique_id=94239049]
+
+[node name="Hearts" type="Node2D" parent="." unique_id=802539713]
+position = Vector2(12, 16)
+
+[node name="Heart9" type="Sprite2D" parent="Hearts" unique_id=1176294428]
+position = Vector2(0, 1.9073486e-06)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_5av22")
+centered = false
+
+[node name="Heart8" type="Sprite2D" parent="Hearts" unique_id=1032810186]
+position = Vector2(47.999996, 1.1368684e-13)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_5av22")
+centered = false
+
+[node name="Heart7" type="Sprite2D" parent="Hearts" unique_id=148966869]
+position = Vector2(95.99999, 1.1368684e-13)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_5av22")
+centered = false
+
+[node name="Heart6" type="Sprite2D" parent="Hearts" unique_id=10050641]
+position = Vector2(143.99998, 1.1368684e-13)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_5av22")
+centered = false
+
+[node name="Heart5" type="Sprite2D" parent="Hearts" unique_id=1939416150]
+position = Vector2(191.99998, 1.1368684e-13)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_5av22")
+centered = false
+
+[node name="Heart4" type="Sprite2D" parent="Hearts" unique_id=1114067294]
+position = Vector2(27.999998, 48)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_5av22")
+centered = false
+
+[node name="Heart3" type="Sprite2D" parent="Hearts" unique_id=2104281989]
+position = Vector2(83.99999, 48)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_5av22")
+centered = false
+
+[node name="Heart2" type="Sprite2D" parent="Hearts" unique_id=1750444124]
+position = Vector2(135.99998, 48)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_5av22")
+centered = false
+
+[node name="Heart1" type="Sprite2D" parent="Hearts" unique_id=493583335]
+position = Vector2(183.99998, 48)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_5av22")
+centered = false
+
+[node name="DialogueLayer" type="CanvasLayer" parent="." unique_id=346226873]
+visible = false
+script = ExtResource("3_gu1bn")
+
+[node name="TypingSound" type="AudioStreamPlayer" parent="DialogueLayer" unique_id=926066326]
+
+[node name="Bg" type="Sprite2D" parent="DialogueLayer" unique_id=1485580789]
+self_modulate = Color(0.84313726, 0.49411765, 0.49411765, 1)
+position = Vector2(192.00002, 414.00003)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_32lsi")
+centered = false
+
+[node name="Nameplate" type="Sprite2D" parent="DialogueLayer/Bg" unique_id=1820211625]
+position = Vector2(900, 327.50006)
+texture = ExtResource("3_4oi1v")
+
+[node name="Speaker" type="RichTextLabel" parent="DialogueLayer" unique_id=2116000395]
+offset_left = 181.0
+offset_top = 447.0
+offset_right = 418.0
+offset_bottom = 481.0
+theme_override_fonts/normal_font = ExtResource("4_gu1bn")
+theme_override_font_sizes/normal_font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="text" type="RichTextLabel" parent="DialogueLayer" unique_id=1856818779]
+offset_left = 371.0
+offset_top = 502.0
+offset_right = 834.0
+offset_bottom = 622.0
+theme_override_fonts/normal_font = ExtResource("4_gu1bn")
+theme_override_font_sizes/normal_font_size = 20
+fit_content = true
+scroll_active = false
+
+[node name="shootCooldown" type="Sprite2D" parent="." unique_id=352292100]
+position = Vector2(1024, 24)
+scale = Vector2(0.5, 0.5633803)
+texture = ExtResource("6_gu1bn")
+centered = false
+flip_h = true

@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dx7f76ruh0glf"]
+
+[ext_resource type="Texture2D" uid="uid://b8dcf0p8nay1j" path="res://assets/textures/particles/light.png" id="1_rqb75"]
+[ext_resource type="Script" uid="uid://cilutbs071wky" path="res://scripts/Ghost Throwable.gd" id="2_6taej"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ynlpw"]
+radius = 325.5764
+
+[node name="Ghost Throwable" type="PointLight2D" unique_id=731417276]
+z_index = -2
+color = Color(0.37254903, 0.10980392, 0.5764706, 1)
+energy = 2.0
+texture = ExtResource("1_rqb75")
+texture_scale = 0.15
+script = ExtResource("2_6taej")
+
+[node name="Ghost Throwable" type="Sprite2D" parent="." unique_id=1764263771]
+modulate = Color(0.37254903, 0.10980392, 0.5764706, 1)
+z_index = -2
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_rqb75")
+
+[node name="Collision" type="Area2D" parent="." unique_id=1582847204]
+visible = false
+scale = Vector2(0.1, 0.1)
+
+[node name="Collision" type="CollisionShape2D" parent="Collision" unique_id=1737897636]
+position = Vector2(0, 39.999992)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CircleShape2D_ynlpw")

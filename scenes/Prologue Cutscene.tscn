@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bgyad631pl1lk"]
+
+[ext_resource type="Script" uid="uid://bdddlpbqvf0kq" path="res://scripts/scenes/prologue_cutscene.gd" id="1_lfgq5"]
+[ext_resource type="AudioStream" uid="uid://imidxg2orv5v" path="res://assets/audio/sfx/foorsteps.mp3" id="2_l78xt"]
+[ext_resource type="Texture2D" uid="uid://cyrj8rmw7qxvj" path="res://assets/textures/cutscenes/prologue.png" id="3_yflw4"]
+[ext_resource type="FontFile" uid="uid://cgwqypji46eqh" path="res://assets/OldNewspaperTypes.ttf" id="6_tq60k"]
+
+[node name="Prologue Cutscene" type="Node2D" unique_id=1731833363]
+texture_filter = 1
+script = ExtResource("1_lfgq5")
+metadata/dialogue = PackedStringArray("1|Mysterious Man|Bai Ling. \\pLong time no see.", "0|Bai Ling|!!...", "0|Bai Ling|!!Tell me what\'s going on.", "1|Mysterious Man|!!What\'s wrong?", "0|Bai Ling|!!What\'s wrong? Have you stepped outside today?  Where are all these spirits coming from? There is an infestation right outside your temple. \\pWhere is everyone else? ", "1|Mysterious Man|!!Don\'t worry about them; they\'ve gone on to help ward off some recent occurances of residual energy in the Chongsheng district. \\pAs for the spirits...we\'ve recieved intel that the Orb of Essence has been stolen.", "0|Bai Ling|!!What?", "1|Mysterious Man|!!That\'s not all. \\pThere is a....\\pmonster in this world.", "1|Mysterious Man|!!It crawled out of the canal only a few hours ago, yet it\'s strength increases exponentially with each passing moment.", "0|Bai Ling|!!Did that...steal the Orb?", "1|Mysterious Man|!!We don’t know for sure. \\pWhat we do know is that the Orb’s misplacement will be catastrophic. We are already watching people struggle to exit the Borderlands, consequently preventing ascension into the afterlife.", "0|Bai Ling|!!So the residual energy at Chongsheng…", "1|Mysterious Man|!!…Is caused by an increase in Souls at the Canal, as traffic flow from the Land of the Living remains blocked.", "0|Bai Ling|!!...", "0|Bai Ling|What can I do?", "1|Mysterious Man|!!Nothing.", "0|Bai Ling|!!Excuse me?", "1|Mysterious Man|!!You need not meddle in such muddy waters. We have yet to gain insight into the full scope of the issue. \\pWe need to wait for the Council to decide our next moves.", "0|Bai Ling|!!The Council? Oh, please. \\pYou are out of your mind.", "1|Mysterious Man|!!...", "0|Bai Ling|!!If you want to wait around, then go ahead. ", "1|Mysterious Man|!!Ling, you cannot do this on your own.", "0|Bai Ling|!!… I will never turn my back on my people. \\pNever.", "1|Mysterious Man|!!...\\pThen so be it.", "0|Bai Ling|!!Goodbye.")
+
+[node name="Sound" type="AudioStreamPlayer" parent="." unique_id=1562452078]
+stream = ExtResource("2_l78xt")
+autoplay = true
+
+[node name="Prologue" type="Sprite2D" parent="." unique_id=1076189513]
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("3_yflw4")
+centered = false
+
+[node name="Shade" type="ColorRect" parent="." unique_id=156090166]
+offset_right = 1163.0
+offset_bottom = 652.0
+color = Color(0, 0, 0, 1)
+
+[node name="TBC" type="RichTextLabel" parent="." unique_id=914679845]
+z_index = -1
+offset_right = 1158.0
+offset_bottom = 647.0
+theme_override_fonts/normal_font = ExtResource("6_tq60k")
+theme_override_font_sizes/normal_font_size = 50
+text = "To Be Continued..."
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d3wldtewex8sm"
+path="res://.godot/imported/Thunder Storm.mp3-807667b7e13bd8ead31171225751464e.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/ambient/Thunder Storm.mp3"
+dest_files=["res://.godot/imported/Thunder Storm.mp3-807667b7e13bd8ead31171225751464e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

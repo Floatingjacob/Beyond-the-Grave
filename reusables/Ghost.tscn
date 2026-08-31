@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://xdbko00ju3eh"]
+
+[ext_resource type="Script" uid="uid://dc17dv2ucr1j0" path="res://scripts/ghost.gd" id="1_hikn1"]
+[ext_resource type="Texture2D" uid="uid://c8dknre2npq6s" path="res://assets/textures/misc/ghost.png" id="2_dvwla"]
+[ext_resource type="Texture2D" uid="uid://b8dcf0p8nay1j" path="res://assets/textures/particles/light.png" id="3_dvwla"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ynlpw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dvwla")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b3wkt"]
+radius = 92.0
+height = 196.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ynlpw"]
+radius = 473.38025
+
+[node name="Ghost" type="CharacterBody2D" unique_id=651949710]
+texture_filter = 1
+scale = Vector2(0.6, 0.6)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_hikn1")
+
+[node name="Animation" type="AnimatedSprite2D" parent="." unique_id=1650664529]
+light_mask = 2
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_ynlpw")
+
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=410982073]
+position = Vector2(0, 8)
+shape = SubResource("CapsuleShape2D_b3wkt")
+
+[node name="Glow" type="PointLight2D" parent="." unique_id=1123656466]
+light_mask = 2
+position = Vector2(-13.333333, 13.333333)
+shadow_color = Color(0, 0, 0, 0.48235294)
+texture = ExtResource("3_dvwla")
+
+[node name="HurtBox" type="Area2D" parent="." unique_id=2095225422]
+visible = false
+
+[node name="Collision" type="CollisionShape2D" parent="HurtBox" unique_id=1678017374]
+position = Vector2(0, 8)
+shape = SubResource("CapsuleShape2D_b3wkt")
+
+[node name="DetectionZone" type="Area2D" parent="." unique_id=861175977]
+
+[node name="Collision" type="CollisionShape2D" parent="DetectionZone" unique_id=2118513164]
+shape = SubResource("CircleShape2D_ynlpw")
+
+[node name="SFX" type="AudioStreamPlayer" parent="." unique_id=1507504195]

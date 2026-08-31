@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cmvlohq7i5hrh"]
+
+[ext_resource type="Texture2D" uid="uid://d3xbesj385ju5" path="res://assets/textures/misc/handsofdeath.png" id="1_dgie4"]
+[ext_resource type="Script" uid="uid://o7823gryodwc" path="res://scripts/handsofdeath.gd" id="2_do7ci"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ynlpw"]
+size = Vector2(390, 146)
+
+[node name="Hands of Death" type="Sprite2D" unique_id=1782197374]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_dgie4")
+script = ExtResource("2_do7ci")
+
+[node name="Collision" type="Area2D" parent="." unique_id=935113984]
+
+[node name="Collision" type="CollisionShape2D" parent="Collision" unique_id=1461437169]
+position = Vector2(-3, -5)
+shape = SubResource("RectangleShape2D_ynlpw")
