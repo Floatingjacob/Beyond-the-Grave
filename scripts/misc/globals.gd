@@ -16,6 +16,7 @@ func _input(_event: InputEvent) -> void:
 
 func Prepare():
 	$"/root/Ui".show()
+	$"/root/Ui/Joystick".show()
 	$"/root/Ui/DialogueLayer".hide()
 	for child in $"/root/Ui/Hearts".get_children():
 		child.modulate = Color(1, 1, 1, 1)

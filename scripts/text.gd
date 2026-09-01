@@ -19,6 +19,7 @@ func _ready() -> void:
 func fancyType(newText: String, clearOldText: bool, textContainer: RichTextLabel = $text):
 	$TypingSound.stream = typingSound
 	skip = false
+	
 	Globals.dialogueOpen = true
 	if clearOldText:
 		textContainer.clear()

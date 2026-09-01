@@ -22,8 +22,9 @@ offset_bottom = 953.0
 color = Color(0, 0, 0, 0)
 
 [node name="Title" type="Sprite2D" parent="." unique_id=1358777418]
-position = Vector2(579, 290.40002)
-scale = Vector2(0.8, 0.8)
+z_index = -3
+position = Vector2(576, 304)
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_83fn4")
 
 [node name="Start" type="Button" parent="." unique_id=365588732]
@@ -57,7 +58,6 @@ script = ExtResource("5_axgku")
 
 [node name="Rain" type="AudioStreamPlayer" parent="." unique_id=1480855340]
 stream = ExtResource("6_5o0dd")
-volume_db = -8.0
 autoplay = true
 
 [node name="RainParticles" type="CPUParticles2D" parent="." unique_id=1765248959]
@@ -65,9 +65,25 @@ z_index = -2
 position = Vector2(572, -172)
 amount = 300
 texture = ExtResource("7_5o0dd")
-lifetime = 2.0
+lifetime = 1.5
 preprocess = 3.0
 emission_shape = 3
-emission_rect_extents = Vector2(600, 1)
+emission_rect_extents = Vector2(300, 1)
 gravity = Vector2(0, 500)
 color = Color(0.25202772, 0.2520276, 0.25202766, 1)
+
+[node name="Rain Splatters" type="CPUParticles2D" parent="." unique_id=1755867363]
+z_index = -2
+position = Vector2(560, 400)
+amount = 80
+lifetime = 0.4
+lifetime_randomness = 0.38
+emission_shape = 3
+emission_rect_extents = Vector2(300, 10)
+direction = Vector2(0, -1)
+spread = 23.05
+gravity = Vector2(0, 500)
+initial_velocity_min = 20.0
+initial_velocity_max = 200.0
+scale_amount_max = 3.0
+color = Color(0.2509804, 0.2509804, 0.2509804, 1)

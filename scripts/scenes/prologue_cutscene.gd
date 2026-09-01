@@ -6,6 +6,7 @@ func _ready() -> void:
 	await get_tree().process_frame
 	$TBC.hide()
 	$"/root/Ui".hide()
+	$"/root/Ui/Joystick".hide()
 	$"/root/Ui/DialogueLayer".hide()
 	await $Sound.finished
 	$Sound.stream = load("res://assets/audio/ambient/mood.mp3")
