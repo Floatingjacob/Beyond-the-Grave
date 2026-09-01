@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://c6quwy046ck7t"]
+
+[ext_resource type="Script" uid="uid://b6ss0voqjf3w5" path="res://scripts/scenes/pregame_intro.gd" id="1_bfo6n"]
+[ext_resource type="Texture2D" uid="uid://cuvkdl5g2n135" path="res://assets/textures/particles/yellow orb.png" id="2_6of1a"]
+[ext_resource type="AudioStream" uid="uid://ux71h2m3yytu" path="res://assets/audio/ambient/mood.mp3" id="3_twobb"]
+[ext_resource type="Script" uid="uid://burgq0yv5yivn" path="res://scripts/misc/loop.gd" id="4_h7e0w"]
+
+[node name="pregame intro" type="Node2D" unique_id=1407347657]
+script = ExtResource("1_bfo6n")
+metadata/dialogue = PackedStringArray("0|???|!![wave]Wake up.\\p Wake up, Child.[/wave]\\p\\n[color=red]It is time for you to depart from this realm.[/color]", "0|???|!!Your world is in need.", "1|Bai Ling|!!Who are you?\\p What do you mean my world is in need?", "0|???|!!Who I am is for you to discover.\\p\\nAs for your world\'s need, I think you\'ll figure it out pretty quickly once you\'re back in it.", "1|Bai Ling|!!What??", "0|???|!![wave]Goodbye, Bai Ling.[/wave]\\nTell Chōshū I said hello.")
+
+[node name="YellowOrb" type="Sprite2D" parent="." unique_id=1869659354]
+visible = false
+position = Vector2(536, 304)
+scale = Vector2(25, 25)
+texture = ExtResource("2_6of1a")
+
+[node name="Gold" type="CPUParticles2D" parent="." unique_id=576578326]
+position = Vector2(576, 320)
+amount = 200
+lifetime_randomness = 0.3
+emission_shape = 6
+emission_ring_inner_radius = 0.0
+emission_ring_radius = 300.0
+gravity = Vector2(0, 0)
+scale_amount_max = 3.0
+color = Color(1, 1, 0, 1)
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="." unique_id=1323025381]
+visible = false
+z_index = -1
+position = Vector2(576, 304)
+amount = 100
+emission_shape = 3
+emission_rect_extents = Vector2(576, 300)
+gravity = Vector2(0, 0)
+scale_amount_max = 3.0
+
+[node name="Shade" type="ColorRect" parent="." unique_id=2055136117]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="Mood" type="AudioStreamPlayer" parent="." unique_id=1666857967]
+stream = ExtResource("3_twobb")
+script = ExtResource("4_h7e0w")

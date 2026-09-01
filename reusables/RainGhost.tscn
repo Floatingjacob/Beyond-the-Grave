@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c54ulpaiiytig"]
 
-[ext_resource type="Script" uid="uid://b5ma6wiktc2cl" path="res://scripts/Rain Ghost.gd" id="1_eeu40"]
+[ext_resource type="Script" uid="uid://b5ma6wiktc2cl" path="res://scripts/Ghost/Rain Ghost.gd" id="1_eeu40"]
 [ext_resource type="Texture2D" uid="uid://c8dknre2npq6s" path="res://assets/textures/misc/ghost.png" id="2_eeu40"]
 [ext_resource type="Texture2D" uid="uid://b8dcf0p8nay1j" path="res://assets/textures/particles/light.png" id="3_d5him"]
 

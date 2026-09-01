@@ -11,7 +11,7 @@ var timer: SceneTreeTimer
 func _ready() -> void:
 	$HurtBox.body_entered.connect(func(body):
 		if body.is_in_group("player"):
-			body.hit())
+			body.call_deferred("hit"))
 	$DetectionZone.body_entered.connect(rush)
 	$DetectionZone.body_exited.connect(func(body):
 		if body.is_in_group("player"):

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://beroww4hhlhhb" path="res://scripts/scenes/Level 1.gd" id="1_1qb7c"]
 [ext_resource type="AudioStream" uid="uid://cqe3hehtc70at" path="res://assets/audio/music/Level 1.mp3" id="2_gpsl1"]
 [ext_resource type="PackedScene" uid="uid://ba8587mppk6ns" path="res://reusables/grass.tscn" id="2_ymo8b"]
-[ext_resource type="Script" uid="uid://burgq0yv5yivn" path="res://scripts/loop.gd" id="3_kbmnf"]
+[ext_resource type="Script" uid="uid://burgq0yv5yivn" path="res://scripts/misc/loop.gd" id="3_kbmnf"]
 [ext_resource type="AudioStream" uid="uid://d3wldtewex8sm" path="res://assets/audio/ambient/Thunder Storm.mp3" id="4_8iqp6"]
 [ext_resource type="Texture2D" uid="uid://bb3jkf6ehqwg2" path="res://assets/textures/particles/basic.png" id="6_oecem"]
 [ext_resource type="Texture2D" uid="uid://ccbyt4untds0u" path="res://assets/textures/parallax/bg.png" id="7_wfl0k"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://v1611apwtn5c" path="res://reusables/BaiLing.tscn" id="20_sgdum"]
 [ext_resource type="Texture2D" uid="uid://imyl5cjw4kfd" path="res://assets/textures/parallax/crossgrass.png" id="20_yv7nf"]
 [ext_resource type="FontFile" uid="uid://cgwqypji46eqh" path="res://assets/OldNewspaperTypes.ttf" id="21_sgdum"]
+[ext_resource type="PackedScene" uid="uid://bnr1qdchorg56" path="res://reusables/Gravestone.tscn" id="22_bfbj5"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_gpsl1"]
 scenes/1/scene = ExtResource("2_ymo8b")
@@ -47,7 +48,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("20_yv7nf")
 
 [node name="Ground" type="TileMapLayer" parent="." unique_id=1780379948]
-position = Vector2(-7, -50)
+position = Vector2(-8, -50)
 tile_map_data = PackedByteArray("AAAtACIAAAAAAAAAAACHACIAAAAAAAAAAADhACIAAAAAAAAAAAAAACkAAQAAAAAAAQBaACkAAQAAAAAAAQC0ACkAAQAAAAAAAQAOASkAAQAAAAAAAQBoASkAAQAAAAAAAQDCASkAAQAAAAAAAQAcAikAAQAAAAAAAQA=")
 tile_set = SubResource("TileSet_dw041")
 
@@ -73,60 +74,6 @@ emission_shape = 3
 emission_rect_extents = Vector2(5100, 1)
 gravity = Vector2(0, 500)
 color = Color(0.25202772, 0.2520276, 0.25202766, 1)
-
-[node name="Midground" type="Parallax2D" parent="." unique_id=678103040]
-z_index = -3
-scroll_scale = Vector2(0.5, 0.5)
-scroll_offset = Vector2(-477, 3)
-repeat_size = Vector2(2880, 0)
-
-[node name="Lighting" type="PointLight2D" parent="Midground" unique_id=1555346335]
-position = Vector2(1176, 460)
-color = Color(0.87058824, 0.011764706, 0.011764706, 1)
-range_item_cull_mask = 4
-texture = ExtResource("13_3qrju")
-
-[node name="Grass" type="Sprite2D" parent="Midground" unique_id=920340460]
-light_mask = 4
-z_index = -2
-position = Vector2(1423, 375)
-scale = Vector2(2, 2)
-texture = ExtResource("9_wfl0k")
-flip_h = true
-
-[node name="Graves" type="Sprite2D" parent="Midground" unique_id=1961011039]
-light_mask = 8
-position = Vector2(1292, 417)
-scale = Vector2(1, 1.2148148)
-texture = ExtResource("12_3qrju")
-
-[node name="Lighting2" type="PointLight2D" parent="Midground" unique_id=2041313369]
-position = Vector2(2354, 473)
-color = Color(0.87058824, 0.011764706, 0.011764706, 1)
-range_item_cull_mask = 4
-texture = ExtResource("13_3qrju")
-
-[node name="Graves2" type="Sprite2D" parent="Midground" unique_id=296904411]
-light_mask = 8
-position = Vector2(2584, 417)
-scale = Vector2(1, 1.2148148)
-texture = ExtResource("12_3qrju")
-
-[node name="Lighting3" type="PointLight2D" parent="Midground" unique_id=639524622]
-position = Vector2(4563, 438)
-color = Color(0.87058824, 0.011764706, 0.011764706, 1)
-range_item_cull_mask = 4
-texture = ExtResource("13_3qrju")
-
-[node name="Mountains" type="Parallax2D" parent="." unique_id=1771428654]
-z_index = -6
-scroll_scale = Vector2(0.4, 0.4)
-scroll_offset = Vector2(-99, 28)
-
-[node name="Mountains" type="Sprite2D" parent="Mountains" unique_id=1623249248]
-position = Vector2(1457, 352)
-scale = Vector2(2, 2)
-texture = ExtResource("11_l161d")
 
 [node name="Collisions" type="StaticBody2D" parent="." unique_id=247692966]
 
@@ -162,23 +109,12 @@ visible = false
 [node name="Collision" type="CollisionPolygon2D" parent="Hands of Death/Cross/Collision" unique_id=549481323]
 polygon = PackedVector2Array(28, -18, 20, -7, 36, 16, -24, 82, -19, 92, -10, 91, 47, 30, 71, 54, 83, 43, 63, 18, 108, -32, 99, -44, 52, 4)
 
-[node name="Sky" type="Parallax2D" parent="." unique_id=219275491]
-z_index = -1
-scroll_scale = Vector2(0.2, 0.2)
-scroll_offset = Vector2(17, 3)
-repeat_size = Vector2(1440, 0)
-
-[node name="Sky" type="Sprite2D" parent="Sky" unique_id=2078365612]
-z_index = -11
-position = Vector2(1425, 270)
-scale = Vector2(2, 2)
-texture = ExtResource("7_wfl0k")
-
 [node name="Shade" type="ColorRect" parent="." unique_id=1127007944]
 z_index = 5
+offset_left = -615.0
 offset_right = 10087.0
 offset_bottom = 953.0
-color = Color(0, 0, 0, 0.26666668)
+color = Color(0, 0, 0, 1)
 
 [node name="Temple" type="Sprite2D" parent="." unique_id=1867920532]
 z_index = -1
@@ -208,10 +144,7 @@ shape = SubResource("SegmentShape2D_ynlpw")
 [node name="Bai Ling" parent="." unique_id=1007260383 instance=ExtResource("20_sgdum")]
 z_index = -1
 position = Vector2(147, 529)
-Limit_Left = 0
-Limit_Top = 0
 Limit_Right = 10071
-Limit_Bottom = 650
 
 [node name="Tutorial Text" type="Node2D" parent="." unique_id=73457198]
 position = Vector2(1037, 465)
@@ -223,6 +156,7 @@ offset_right = -761.0
 offset_bottom = -7.0
 theme_override_fonts/normal_font = ExtResource("21_sgdum")
 theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
 text = "Press A or D to move"
 fit_content = true
 scroll_active = false
@@ -281,3 +215,81 @@ theme_override_font_sizes/normal_font_size = 20
 text = "In cat form, press Space to jump"
 fit_content = true
 scroll_active = false
+
+[node name="Parallax" type="Node2D" parent="." unique_id=225947661]
+
+[node name="Midground" type="Parallax2D" parent="Parallax" unique_id=678103040]
+z_index = -3
+scroll_scale = Vector2(0.5, 0.5)
+scroll_offset = Vector2(-477, 3)
+repeat_size = Vector2(2880, 0)
+
+[node name="Lighting" type="PointLight2D" parent="Parallax/Midground" unique_id=1555346335]
+position = Vector2(1176, 460)
+color = Color(0.87058824, 0.011764706, 0.011764706, 1)
+range_item_cull_mask = 4
+texture = ExtResource("13_3qrju")
+
+[node name="Grass" type="Sprite2D" parent="Parallax/Midground" unique_id=920340460]
+light_mask = 4
+z_index = -2
+position = Vector2(1423, 375)
+scale = Vector2(2, 2)
+texture = ExtResource("9_wfl0k")
+flip_h = true
+
+[node name="Graves" type="Sprite2D" parent="Parallax/Midground" unique_id=1961011039]
+light_mask = 8
+position = Vector2(1292, 417)
+scale = Vector2(1, 1.2148148)
+texture = ExtResource("12_3qrju")
+
+[node name="Lighting2" type="PointLight2D" parent="Parallax/Midground" unique_id=2041313369]
+position = Vector2(2354, 473)
+color = Color(0.87058824, 0.011764706, 0.011764706, 1)
+range_item_cull_mask = 4
+texture = ExtResource("13_3qrju")
+
+[node name="Graves2" type="Sprite2D" parent="Parallax/Midground" unique_id=296904411]
+light_mask = 8
+position = Vector2(2584, 417)
+scale = Vector2(1, 1.2148148)
+texture = ExtResource("12_3qrju")
+
+[node name="Lighting3" type="PointLight2D" parent="Parallax/Midground" unique_id=639524622]
+position = Vector2(4563, 438)
+color = Color(0.87058824, 0.011764706, 0.011764706, 1)
+range_item_cull_mask = 4
+texture = ExtResource("13_3qrju")
+
+[node name="Mountains" type="Parallax2D" parent="Parallax" unique_id=1771428654]
+z_index = -6
+scroll_scale = Vector2(0.4, 0.4)
+scroll_offset = Vector2(-99, 28)
+
+[node name="Mountains" type="Sprite2D" parent="Parallax/Mountains" unique_id=1623249248]
+position = Vector2(1457, 352)
+scale = Vector2(2, 2)
+texture = ExtResource("11_l161d")
+
+[node name="Sky" type="Parallax2D" parent="Parallax" unique_id=219275491]
+z_index = -1
+scroll_scale = Vector2(0.2, 0.2)
+scroll_offset = Vector2(17, 3)
+repeat_size = Vector2(1440, 0)
+
+[node name="Sky" type="Sprite2D" parent="Parallax/Sky" unique_id=2078365612]
+z_index = -11
+position = Vector2(1425, 270)
+scale = Vector2(2, 2)
+texture = ExtResource("7_wfl0k")
+
+[node name="Gravestone" parent="." unique_id=1702346252 instance=ExtResource("22_bfbj5")]
+z_index = -1
+offset_left = 27.0
+offset_top = 543.0
+offset_right = 75.0
+offset_bottom = 607.0
+focus_mode = 0
+button_mask = 0
+Text = "[wave]Bai Ling[/wave]"

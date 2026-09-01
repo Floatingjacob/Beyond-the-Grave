@@ -2,8 +2,8 @@ extends Button
 
 func _pressed() -> void:
 	await fade()
-	get_tree().change_scene_to_file("res://scenes/Pregame Intro.tscn")
-
+	get_tree().quit()
+	
 func fade():
 	if $"../Shade".color.a8 <= 0:
 		while $"../Shade".color.a8 < 255:

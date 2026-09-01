@@ -5,14 +5,21 @@
 [ext_resource type="FontFile" uid="uid://cgwqypji46eqh" path="res://assets/OldNewspaperTypes.ttf" id="2_1lrr1"]
 [ext_resource type="Script" uid="uid://dwyikq4muae70" path="res://scripts/scenes/title scene/start.gd" id="2_aw7pl"]
 [ext_resource type="AudioStream" uid="uid://cdw44eukgdjwy" path="res://assets/audio/music/Title.mp3" id="4_aw7pl"]
-[ext_resource type="Script" uid="uid://dwtqiadc6g3ay" path="res://scripts/quit.gd" id="5_2ddsv"]
-[ext_resource type="Script" uid="uid://burgq0yv5yivn" path="res://scripts/loop.gd" id="5_axgku"]
+[ext_resource type="Script" uid="uid://dwtqiadc6g3ay" path="res://scripts/misc/quit.gd" id="5_2ddsv"]
+[ext_resource type="Script" uid="uid://burgq0yv5yivn" path="res://scripts/misc/loop.gd" id="5_axgku"]
 [ext_resource type="AudioStream" uid="uid://di36cvfq64ev0" path="res://assets/audio/ambient/Rain.mp3" id="6_5o0dd"]
 [ext_resource type="Texture2D" uid="uid://bb3jkf6ehqwg2" path="res://assets/textures/particles/basic.png" id="7_5o0dd"]
 
 [node name="TitleScreen" type="Node2D" unique_id=456867659]
 texture_filter = 1
 script = ExtResource("1_2ddsv")
+
+[node name="Shade" type="ColorRect" parent="." unique_id=1106370521]
+z_index = 5
+offset_left = -615.0
+offset_right = 10087.0
+offset_bottom = 953.0
+color = Color(0, 0, 0, 0)
 
 [node name="Title" type="Sprite2D" parent="." unique_id=1358777418]
 position = Vector2(579, 290.40002)

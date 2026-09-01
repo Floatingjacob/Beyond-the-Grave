@@ -1,4 +1,4 @@
-extends PointLight2D
+extends CharacterBody2D
 
 var Direction := Vector2(0, 1)
 var Speed := 1
@@ -9,13 +9,16 @@ var origin := Vector2(0, 0)
 func _ready() -> void:
 	$Collision.body_entered.connect(func(body):
 		if body.is_in_group("player"):
-			body.hit()
+			body.call_deferred("hit")
 			queue_free())
 	origin = global_position
-func _process(delta: float) -> void:
-	position += Direction * Speed * delta
+func _physics_process(_delta: float) -> void:
+	velocity = Direction * Speed
 	if abs(origin.x - global_position.x) > max_distance || abs(origin.y - global_position.y) > max_distance:
-		free()
+		queue_free()
+	if not is_queued_for_deletion():
+		move_and_slide()
+	
 
 func configure(direction, speed, maxDistance):
 	Direction = direction

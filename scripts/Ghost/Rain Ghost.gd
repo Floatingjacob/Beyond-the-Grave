@@ -14,7 +14,7 @@ func _ready() -> void:
 	timer = get_tree().create_timer(1)
 	$HurtBox.body_entered.connect(func(body):
 		if body.is_in_group("player"):
-			body.hit())
+			body.call_deferred("hit"))
 
 func _process(delta: float) -> void:
 	if timer.time_left == 0:
@@ -49,4 +49,6 @@ func hit(body):
 func throw():
 	var throwable = Throwable.instantiate()
 	throwable.configure(direction, speed, max_distance)
-	add_child(throwable)
+	throwable.global_position = global_position
+	get_parent().add_child(throwable)
+	

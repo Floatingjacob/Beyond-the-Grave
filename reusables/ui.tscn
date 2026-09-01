@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://c8gowhbdjby5i" path="res://scripts/text.gd" id="3_gu1bn"]
 [ext_resource type="FontFile" uid="uid://cgwqypji46eqh" path="res://assets/OldNewspaperTypes.ttf" id="4_gu1bn"]
 [ext_resource type="Texture2D" uid="uid://8542xp124dey" path="res://assets/textures/particles/projectile.png" id="6_gu1bn"]
+[ext_resource type="Texture2D" uid="uid://calcrtodsfcns" path="res://assets/textures/ui/defend.png" id="7_p1jgh"]
 
 [node name="Ui" type="CanvasLayer" unique_id=94239049]
 
@@ -90,6 +91,7 @@ offset_right = 418.0
 offset_bottom = 481.0
 theme_override_fonts/normal_font = ExtResource("4_gu1bn")
 theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -100,6 +102,7 @@ offset_right = 834.0
 offset_bottom = 622.0
 theme_override_fonts/normal_font = ExtResource("4_gu1bn")
 theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
 fit_content = true
 scroll_active = false
 
@@ -109,3 +112,20 @@ scale = Vector2(0.5, 0.5633803)
 texture = ExtResource("6_gu1bn")
 centered = false
 flip_h = true
+
+[node name="Defend" type="TouchScreenButton" parent="." unique_id=1570647050]
+position = Vector2(976, 464)
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("7_p1jgh")
+action = "dodge"
+visibility_mode = 1
+
+[node name="Joystick" type="VirtualJoystick" parent="." unique_id=1267972201]
+offset_left = 88.0
+offset_top = 512.0
+offset_right = 128.0
+offset_bottom = 552.0
+joystick_mode = 2
+joystick_size = 140.0
+tip_size = 100.0
+visibility_mode = 1

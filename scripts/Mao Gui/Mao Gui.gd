@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 @export_category("Camera Limits")
 
-@export var Limit_Left = -10000000
-@export var Limit_Top = -10000000
+@export var Limit_Left = 0
+@export var Limit_Top = 0
 @export var Limit_Right = 10000000
 @export var Limit_Bottom = 10000000
 
@@ -106,7 +106,7 @@ func toggleCat():
 	if Globals.isCat: SPEED = 500
 	else: SPEED = 400
 
-func _input(_event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:	
 	if Globals.inputAllowed:
 		if Input.is_action_just_pressed("toggle_cat"):
 			toggleCat()
@@ -117,7 +117,7 @@ func _input(_event: InputEvent) -> void:
 			var projectile = Projectile.instantiate()
 			get_parent().add_child(projectile)
 			projectile.global_position = global_position
-			projectile.shoot(get_global_mouse_position())
+			projectile.shoot(get_global_mouse_position(), velocity)
 			onCooldown = true
 			$"/root/Ui/shootCooldown".modulate.a = 0.5
 			timer = get_tree().create_timer(0.5)
@@ -154,8 +154,6 @@ func hit():
 		$SFX.play()
 		Globals.hearts -= 1
 		if Globals.hearts < 1:
-			for child in $"/root/Ui/Hearts".get_children():
-				child.modulate = Color(1, 1, 1, 1)
 			get_tree().reload_current_scene()
 		else:
 			get_node("/root/Ui/Hearts/Heart" + str(abs(Globals.hearts - 9))).modulate = Color(1, 1, 1, 0.5)

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bnr1qdchorg56"]
+
+[ext_resource type="Texture2D" uid="uid://b3itu0rrol3p7" path="res://assets/textures/misc/tombstone/tombstone1.png" id="1_axiqf"]
+[ext_resource type="Texture2D" uid="uid://vo25df0lwunx" path="res://assets/textures/misc/tombstone/tombstone2.png" id="2_2ns08"]
+[ext_resource type="Script" uid="uid://c5icxof46l6n3" path="res://scripts/misc/gravestone.gd" id="3_2ns08"]
+[ext_resource type="FontFile" uid="uid://cgwqypji46eqh" path="res://assets/OldNewspaperTypes.ttf" id="4_x7xa5"]
+
+[node name="Gravestone" type="TextureButton" unique_id=1702346252]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("1_axiqf")
+texture_hover = ExtResource("2_2ns08")
+stretch_mode = 0
+script = ExtResource("3_2ns08")
+
+[node name="text" type="RichTextLabel" parent="." unique_id=1140850023]
+layout_mode = 0
+offset_left = -10.0
+offset_top = -64.0
+offset_right = 58.0
+offset_bottom = -24.0
+theme_override_fonts/normal_font = ExtResource("4_x7xa5")
+bbcode_enabled = true
+text = "Bai Ling"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
