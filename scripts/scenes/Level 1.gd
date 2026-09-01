@@ -19,10 +19,10 @@ func _ready() -> void:
 	)
 
 func _process(_delta: float) -> void:
-#	if $"Bai Ling".global_position.y > 680:
-#		if $Shade.color.a8 < 255 and not transitioning:
-#			transitioning = true
-#			transition()
+	if $"Bai Ling".global_position.y > 680:
+		if $Shade.color.a8 < 255 and not transitioning:
+			transitioning = true
+			transition()
 	if not Globals.isCat and not wasCat:
 		
 		$"Tutorial Text/non solid".hide()
