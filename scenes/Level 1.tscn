@@ -41,12 +41,6 @@ b = Vector2(-779, -341)
 texture_filter = 1
 script = ExtResource("1_1qb7c")
 
-[node name="Crossgrass" type="Sprite2D" parent="." unique_id=907643501]
-z_index = 2
-position = Vector2(8426, 400)
-scale = Vector2(2, 2)
-texture = ExtResource("20_yv7nf")
-
 [node name="Ground" type="TileMapLayer" parent="." unique_id=1780379948]
 position = Vector2(-8, -50)
 tile_map_data = PackedByteArray("AAAtACIAAAAAAAAAAACHACIAAAAAAAAAAADhACIAAAAAAAAAAAAAACkAAQAAAAAAAQBaACkAAQAAAAAAAQC0ACkAAQAAAAAAAQAOASkAAQAAAAAAAQBoASkAAQAAAAAAAQDCASkAAQAAAAAAAQAcAikAAQAAAAAAAQA=")
@@ -147,6 +141,7 @@ position = Vector2(147, 529)
 Limit_Right = 10071
 
 [node name="Tutorial Text" type="Node2D" parent="." unique_id=73457198]
+z_index = 3
 position = Vector2(1037, 465)
 
 [node name="move" type="RichTextLabel" parent="Tutorial Text" unique_id=1685309721]
@@ -274,9 +269,10 @@ texture = ExtResource("11_l161d")
 
 [node name="Sky" type="Parallax2D" parent="Parallax" unique_id=219275491]
 z_index = -1
+texture_repeat = 3
 scroll_scale = Vector2(0.2, 0.2)
 scroll_offset = Vector2(17, 3)
-repeat_size = Vector2(1440, 0)
+repeat_size = Vector2(2880, 0)
 
 [node name="Sky" type="Sprite2D" parent="Parallax/Sky" unique_id=2078365612]
 z_index = -11
@@ -284,12 +280,27 @@ position = Vector2(1425, 270)
 scale = Vector2(2, 2)
 texture = ExtResource("7_wfl0k")
 
+[node name="Foreground Grass" type="Parallax2D" parent="Parallax" unique_id=2099018407]
+scroll_scale = Vector2(2, 2)
+scroll_offset = Vector2(-1, 19)
+repeat_size = Vector2(2880, 0)
+repeat_times = 2
+limit_begin = Vector2(0, -10000000)
+
+[node name="Foreground Grass" type="Sprite2D" parent="Parallax/Foreground Grass" unique_id=907643501]
+light_mask = 0
+z_index = 2
+position = Vector2(1726, 381)
+scale = Vector2(2, 2)
+texture = ExtResource("20_yv7nf")
+
 [node name="Gravestone" parent="." unique_id=1702346252 instance=ExtResource("22_bfbj5")]
-z_index = -1
-offset_left = 27.0
-offset_top = 543.0
-offset_right = 75.0
-offset_bottom = 607.0
+z_index = -2
+offset_left = 465.0
+offset_top = 536.0
+offset_right = 513.0
+offset_bottom = 600.0
+scale = Vector2(1.2, 1.2)
 focus_mode = 0
 button_mask = 0
 Text = "[wave]Bai Ling[/wave]"
