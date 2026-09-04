@@ -1,8 +1,12 @@
 extends Button
 
+var fading := false
+
 func _pressed() -> void:
-	await fade()
-	get_tree().quit()
+	if not fading:
+		fading = true
+		await fade()
+		get_tree().quit()
 	
 func fade():
 	if $"../Shade".color.a8 <= 0:

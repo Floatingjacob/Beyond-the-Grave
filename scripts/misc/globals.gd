@@ -4,6 +4,7 @@ var hearts := 9
 var isCat := false
 var inputAllowed := true
 var dialogueOpen := false
+var icons: Array[Texture2D] = [load("res://assets/textures/ui/transformCat.png"), load("res://assets/textures/ui/transformHuman.png")]
 var config = ConfigFile.new()
 
 func _input(_event: InputEvent) -> void:

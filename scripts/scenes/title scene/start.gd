@@ -1,8 +1,12 @@
 extends Button
 
+var fading := false
+
 func _pressed() -> void:
-	await fade()
-	get_tree().change_scene_to_file("res://scenes/Pregame Intro.tscn")
+	if not fading:
+		fading = true
+		await fade()
+		get_tree().change_scene_to_file("res://scenes/Pregame Intro.tscn")
 
 func fade():
 	if $"../Shade".color.a8 <= 0:

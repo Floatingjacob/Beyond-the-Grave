@@ -7,6 +7,13 @@
 [ext_resource type="FontFile" uid="uid://cgwqypji46eqh" path="res://assets/OldNewspaperTypes.ttf" id="4_gu1bn"]
 [ext_resource type="Texture2D" uid="uid://8542xp124dey" path="res://assets/textures/particles/projectile.png" id="6_gu1bn"]
 [ext_resource type="Texture2D" uid="uid://calcrtodsfcns" path="res://assets/textures/ui/defend.png" id="7_p1jgh"]
+[ext_resource type="Texture2D" uid="uid://haa1mxcfalar" path="res://assets/textures/ui/transformCat.png" id="8_52bgs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qnoap"]
+radius = 220.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_52bgs"]
+radius = 30.0
 
 [node name="Ui" type="CanvasLayer" unique_id=94239049]
 
@@ -105,6 +112,7 @@ theme_override_font_sizes/normal_font_size = 20
 bbcode_enabled = true
 fit_content = true
 scroll_active = false
+visible_characters_behavior = 1
 
 [node name="shootCooldown" type="Sprite2D" parent="." unique_id=352292100]
 position = Vector2(1024, 24)
@@ -112,13 +120,6 @@ scale = Vector2(0.5, 0.5633803)
 texture = ExtResource("6_gu1bn")
 centered = false
 flip_h = true
-
-[node name="Defend" type="TouchScreenButton" parent="." unique_id=1570647050]
-position = Vector2(976, 464)
-scale = Vector2(0.2, 0.2)
-texture_normal = ExtResource("7_p1jgh")
-action = "dodge"
-visibility_mode = 1
 
 [node name="Joystick" type="VirtualJoystick" parent="." unique_id=1267972201]
 offset_left = 88.0
@@ -128,4 +129,20 @@ offset_bottom = 552.0
 joystick_mode = 2
 joystick_size = 140.0
 tip_size = 100.0
+visibility_mode = 1
+
+[node name="Defend" type="TouchScreenButton" parent="." unique_id=1570647050]
+position = Vector2(1029, 472)
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("7_p1jgh")
+shape = SubResource("CircleShape2D_qnoap")
+action = "dodge"
+visibility_mode = 1
+
+[node name="Transform" type="TouchScreenButton" parent="." unique_id=1352951282]
+position = Vector2(933, 545)
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("8_52bgs")
+shape = SubResource("CircleShape2D_52bgs")
+action = "toggle_cat"
 visibility_mode = 1

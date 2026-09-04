@@ -19,7 +19,6 @@ boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/use_filter=false
 boot_splash/image="uid://vssako2833x0"
 config/icon="uid://vssako2833x0"
-config/emulate_touch_from_mouse=false
 
 [autoload]
 

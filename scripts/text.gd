@@ -35,9 +35,10 @@ func fancyType(newText: String, clearOldText: bool, textContainer: RichTextLabel
 		textContainer.visible_characters += 1
 		$TypingSound.play()
 		await get_tree().create_timer(TypingInterval).timeout
-	skip = false
-	textContainer.text = oldText
-	textContainer.visible_characters = textContainer.get_parsed_text().length() # This makes sure all the text is visible if we skip the typing effect
+	if skip:
+		textContainer.text = oldText
+		textContainer.visible_characters = textContainer.get_parsed_text().length()
+		skip = false
 	#await e
 	Globals.dialogueOpen = false
 

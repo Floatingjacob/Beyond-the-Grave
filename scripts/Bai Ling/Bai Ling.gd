@@ -64,11 +64,14 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func toggleCat():
+	print("cat toggled")
 	Globals.isCat = !Globals.isCat
 	if Globals.isCat:
+		$"/root/Ui/Transform".texture_normal = Globals.icons[1]
 		$"/root/Ui/shootCooldown".modulate.a = 0.5
 		$Transform.color = Color8(128, 5, 255)
 	else: 
+		$"/root/Ui/Transform".texture_normal = Globals.icons[0]
 		if not onCooldown:
 			$"/root/Ui/shootCooldown".modulate.a = 1
 		$Transform.color = Color(1, 1, 0)
@@ -83,6 +86,7 @@ func _input(_event: InputEvent) -> void:
 	if Globals.inputAllowed:
 		if Input.is_action_just_pressed("toggle_cat") and is_on_floor():
 			toggleCat()
+			return
 		if Input.is_action_just_pressed("shoot") and !Globals.isCat and not onCooldown and vulnerable:
 			$Animation.flip_h = get_global_mouse_position() - global_position < Vector2.ZERO
 			$Animation.play("shoot")

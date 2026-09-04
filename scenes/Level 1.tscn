@@ -104,7 +104,6 @@ visible = false
 polygon = PackedVector2Array(28, -18, 20, -7, 36, 16, -24, 82, -19, 92, -10, 91, 47, 30, 71, 54, 83, 43, 63, 18, 108, -32, 99, -44, 52, 4)
 
 [node name="Shade" type="ColorRect" parent="." unique_id=1127007944]
-visible = false
 z_index = 5
 offset_left = -615.0
 offset_right = 10087.0
