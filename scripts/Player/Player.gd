@@ -32,11 +32,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	else:
 		jumping = false
-<<<<<<< HEAD:scripts/Player/Player.gd
 		cyoteTimer = 0.3
-=======
-
->>>>>>> 5f691d72dc89d418e9c55af7a9c66afaecc8b2fe:scripts/Bai Ling/Bai Ling.gd
 	cyoteTimer = max(0.0, cyoteTimer - delta)
 	
 	var canJump = is_on_floor() or cyoteTimer > 0.0
@@ -96,7 +92,6 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("toggle_cat"):
 		if is_on_floor():
 			toggleCat()
-<<<<<<< HEAD:scripts/Player/Player.gd
 		return
 		
 	if Input.is_action_pressed("dodge"):
@@ -122,28 +117,6 @@ func _input(_event: InputEvent) -> void:
 		if not Globals.isCat:
 			$"/root/Ui/shootCooldown".modulate.a = 1
 		onCooldown = false
-=======
-			return
-		if Input.is_action_pressed("dodge") and not Globals.isCat:
-			if vulnerable:
-				dodge()
-		else: vulnerable = true
-		if Input.is_action_just_pressed("shoot") and !Globals.isCat and not onCooldown and vulnerable:
-			$Animation.flip_h = get_global_mouse_position() - global_position < Vector2.ZERO
-			$Animation.play("shoot")
-			$Animation.frame = 1
-			var projectile = Projectile.instantiate()
-			get_parent().add_child(projectile)
-			projectile.global_position = global_position
-			projectile.shoot(get_global_mouse_position(), velocity)
-			onCooldown = true
-			$"/root/Ui/shootCooldown".modulate.a = 0.5
-			timer = get_tree().create_timer(1)
-			await timer.timeout
-			if not Globals.isCat:
-				$"/root/Ui/shootCooldown".modulate.a = 1
-			onCooldown = false
->>>>>>> 5f691d72dc89d418e9c55af7a9c66afaecc8b2fe:scripts/Bai Ling/Bai Ling.gd
 
 func hit():
 	if vulnerable:

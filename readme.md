@@ -1,6 +1,5 @@
 # Changelog
 
-<<<<<<< HEAD
 **9.6.26**
 
 * Adjusted the touch UI some more
@@ -15,16 +14,6 @@
 
 **9.3.26**
 
-=======
-**9.5.26**
-
-* Fixed the touch UI
-* Fixed the direction the sprite faces when the player uses the touch joystick
-* Made it so the player can't move during fade transitions
-
-**9.3.26**
-
->>>>>>> 5f691d72dc89d418e9c55af7a9c66afaecc8b2fe
 * Added some error handling to dialogue strings
 
 **9.2.26**
