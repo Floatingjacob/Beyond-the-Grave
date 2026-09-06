@@ -4,13 +4,18 @@ var transitioning := false
 var wasCat := false
 
 func _ready() -> void:
+	
 	$"/root/Ui".hide()
+	Globals.inputAllowed = false
 	$Shade.z_index = 11 # Display over the rain
 	await fade()
 	$Shade.z_index = 5
 	await Globals.Prepare()
+	Globals.inputAllowed = true
+	
 	$Temple/Event.body_entered.connect(func(body):
 		if body.is_in_group("player"):
+			$"/root/Ui".hide()
 			Globals.inputAllowed = false
 			if Globals.isCat:
 					$"Bai Ling".toggleCat()
@@ -22,7 +27,9 @@ func _process(_delta: float) -> void:
 	if $"Bai Ling".global_position.y > 680:
 		if $Shade.color.a8 < 255 and not transitioning:
 			transitioning = true
-			transition()
+			$RainParticles.emitting = false
+			await fade()
+			get_tree().change_scene_to_file("res://scenes/Prologue Cutscene.tscn")
 	if not Globals.isCat and not wasCat:
 		
 		$"Tutorial Text/non solid".hide()
@@ -47,12 +54,3 @@ func fade():
 		while $Shade.color.a8 > 68:
 			$Shade.color.a8 -= 1
 			await get_tree().create_timer(0.001).timeout
-
-func transition():
-	$"/root/Ui".hide()
-	$RainParticles.emitting = false
-	while $Shade.color.a8 < 255:
-		$Shade.color.a8 += 2
-		await get_tree().create_timer(0.001).timeout
-	await get_tree().create_timer(1).timeout
-	get_tree().change_scene_to_file("res://scenes/Prologue Cutscene.tscn")

@@ -6,6 +6,11 @@ var inputAllowed := true
 var dialogueOpen := false
 var icons: Array[Texture2D] = [load("res://assets/textures/ui/transformCat.png"), load("res://assets/textures/ui/transformHuman.png")]
 var config = ConfigFile.new()
+var transformDebounce:SceneTreeTimer
+
+func _ready() -> void:
+	await get_tree().process_frame
+	Globals.transformDebounce = get_tree().create_timer(0.1)
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("fullscreen"):

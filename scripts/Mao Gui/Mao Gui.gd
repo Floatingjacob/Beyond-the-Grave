@@ -51,6 +51,10 @@ func _physics_process(delta: float) -> void:
 	if Globals.inputAllowed:
 		direction = Input.get_axis("ui_left", "ui_right")
 		
+		if direction > 0: direction = 1
+		elif 0 > direction: direction = -1
+		else: direction = 0
+		
 		if Input.is_action_just_pressed("ui_up") and Globals.isCat and canJump:
 			$SFX.stream = load("res://assets/audio/sfx/Jump.wav")
 			$SFX.play()
@@ -110,6 +114,10 @@ func _input(_event: InputEvent) -> void:
 	if Globals.inputAllowed:
 		if Input.is_action_just_pressed("toggle_cat"):
 			toggleCat()
+		if Input.is_action_pressed("dodge") and not Globals.isCat:
+			if vulnerable:
+				dodge()
+		else: vulnerable = true
 		if Input.is_action_just_pressed("shoot") and !Globals.isCat and not onCooldown and vulnerable:
 			$Animation.flip_h = get_global_mouse_position() - global_position < Vector2.ZERO
 			$Animation.play("shoot")
@@ -125,10 +133,6 @@ func _input(_event: InputEvent) -> void:
 			if not Globals.isCat:
 				$"/root/Ui/shootCooldown".modulate.a = 1
 			onCooldown = false
-		if Input.is_action_pressed("dodge") and not Globals.isCat:
-			if vulnerable:
-				dodge()
-		else: vulnerable = true
 
 
 func dodge():

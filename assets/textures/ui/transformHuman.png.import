@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cytn2uo7k7vpp"
-path="res://.godot/imported/icon.png-b6a7fb2db36edd3d95dc42f1dc8c1c5d.ctex"
+uid="uid://430y26gv15dl"
+path="res://.godot/imported/transformHuman.png-7389db0cc9da03f2b33dcfe88527fa66.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icon.png"
-dest_files=["res://.godot/imported/icon.png-b6a7fb2db36edd3d95dc42f1dc8c1c5d.ctex"]
+source_file="res://assets/textures/ui/transformHuman.png"
+dest_files=["res://.godot/imported/transformHuman.png-7389db0cc9da03f2b33dcfe88527fa66.ctex"]
 
 [params]
 

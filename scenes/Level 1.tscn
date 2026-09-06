@@ -41,6 +41,14 @@ b = Vector2(-779, -341)
 texture_filter = 1
 script = ExtResource("1_1qb7c")
 
+[node name="Shade" type="ColorRect" parent="." unique_id=1127007944]
+z_index = 5
+offset_left = -615.0
+offset_top = -208.0
+offset_right = 10087.0
+offset_bottom = 1049.0
+color = Color(0, 0, 0, 1)
+
 [node name="Ground" type="TileMapLayer" parent="." unique_id=1780379948]
 position = Vector2(-8, -50)
 tile_map_data = PackedByteArray("AAAtACIAAAAAAAAAAACHACIAAAAAAAAAAADhACIAAAAAAAAAAAAAACkAAQAAAAAAAQBaACkAAQAAAAAAAQC0ACkAAQAAAAAAAQAOASkAAQAAAAAAAQBoASkAAQAAAAAAAQDCASkAAQAAAAAAAQAcAikAAQAAAAAAAQA=")
@@ -102,13 +110,6 @@ visible = false
 
 [node name="Collision" type="CollisionPolygon2D" parent="Hands of Death/Cross/Collision" unique_id=549481323]
 polygon = PackedVector2Array(28, -18, 20, -7, 36, 16, -24, 82, -19, 92, -10, 91, 47, 30, 71, 54, 83, 43, 63, 18, 108, -32, 99, -44, 52, 4)
-
-[node name="Shade" type="ColorRect" parent="." unique_id=1127007944]
-z_index = 5
-offset_left = -615.0
-offset_right = 10087.0
-offset_bottom = 953.0
-color = Color(0, 0, 0, 1)
 
 [node name="Temple" type="Sprite2D" parent="." unique_id=1867920532]
 z_index = -1

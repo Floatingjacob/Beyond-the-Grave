@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bvvftpbaiyeve"]
 
 [ext_resource type="Texture2D" uid="uid://cv06qfr7tepkm" path="res://assets/textures/ui/heart.png" id="1_5av22"]
+[ext_resource type="Script" uid="uid://bfw86amg8p1qi" path="res://scripts/ui.gd" id="1_qnoap"]
 [ext_resource type="Texture2D" uid="uid://bt8osls3xxjq7" path="res://assets/textures/ui/textbox.png" id="2_32lsi"]
 [ext_resource type="Texture2D" uid="uid://y2wkmv3a6vsd" path="res://assets/textures/ui/nameplate.png" id="3_4oi1v"]
 [ext_resource type="Script" uid="uid://c8gowhbdjby5i" path="res://scripts/text.gd" id="3_gu1bn"]
@@ -9,13 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://calcrtodsfcns" path="res://assets/textures/ui/defend.png" id="7_p1jgh"]
 [ext_resource type="Texture2D" uid="uid://haa1mxcfalar" path="res://assets/textures/ui/transformCat.png" id="8_52bgs"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_qnoap"]
-radius = 220.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_52bgs"]
-radius = 30.0
-
 [node name="Ui" type="CanvasLayer" unique_id=94239049]
+script = ExtResource("1_qnoap")
 
 [node name="Hearts" type="Node2D" parent="." unique_id=802539713]
 position = Vector2(12, 16)
@@ -122,27 +118,22 @@ centered = false
 flip_h = true
 
 [node name="Joystick" type="VirtualJoystick" parent="." unique_id=1267972201]
-offset_left = 88.0
-offset_top = 512.0
-offset_right = 128.0
-offset_bottom = 552.0
-joystick_mode = 2
-joystick_size = 140.0
-tip_size = 100.0
-visibility_mode = 1
+offset_left = 2.0
+offset_top = 432.0
+offset_right = 222.0
+offset_bottom = 643.0
+joystick_size = 200.0
+tip_size = 150.0
+deadzone_ratio = 0.5
 
 [node name="Defend" type="TouchScreenButton" parent="." unique_id=1570647050]
-position = Vector2(1029, 472)
-scale = Vector2(0.2, 0.2)
+position = Vector2(996, 353)
+scale = Vector2(0.3, 0.3)
 texture_normal = ExtResource("7_p1jgh")
-shape = SubResource("CircleShape2D_qnoap")
 action = "dodge"
-visibility_mode = 1
 
 [node name="Transform" type="TouchScreenButton" parent="." unique_id=1352951282]
-position = Vector2(933, 545)
-scale = Vector2(1.5, 1.5)
+position = Vector2(904, 485)
+scale = Vector2(2.5, 2.5)
 texture_normal = ExtResource("8_52bgs")
-shape = SubResource("CircleShape2D_52bgs")
 action = "toggle_cat"
-visibility_mode = 1

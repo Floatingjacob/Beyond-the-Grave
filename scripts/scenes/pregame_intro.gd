@@ -2,7 +2,7 @@ extends Node2D
 
 func _ready() -> void:
 	await get_tree().process_frame
-	$"/root/Ui".hide()
+	Ui.hide()
 	await fade()
 	await Dialogue.speak($".", [load("res://assets/audio/sfx/Blip 1.wav"), load("res://assets/audio/sfx/Blip.wav")])
 	await fade()

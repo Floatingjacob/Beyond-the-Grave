@@ -20,3 +20,7 @@ mono_crash.*.json
 web/
 unity/
 *.exe
+*.apk
+*.apk.idsig
+
+android/

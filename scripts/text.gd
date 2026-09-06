@@ -9,10 +9,12 @@ var oldText = ""
 var config = ConfigFile.new()
 var skip := false
 var timer:SceneTreeTimer
+var skipDebounce:SceneTreeTimer
 
 func _ready() -> void:
 	await get_tree().process_frame
 	timer = get_tree().create_timer(0)
+	skipDebounce = get_tree().create_timer(0)
 	if config.load("user://misc.cfg") == OK:
 		TypingInterval = config.get_value("typing", "speed")
 
@@ -43,12 +45,11 @@ func fancyType(newText: String, clearOldText: bool, textContainer: RichTextLabel
 	Globals.dialogueOpen = false
 
 func _input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("UI_INTERACT"): 
-		if Globals.dialogueOpen:
-			skip = true
-		if timer != null:
-			timer.timeout.emit()
+	if Input.is_action_just_pressed("UI_INTERACT") and skipDebounce.time_left == 0: 
+		if Globals.dialogueOpen: skip = true
+		if timer != null: timer.timeout.emit()
 		e.emit()
+		skipDebounce = get_tree().create_timer(0.1)
 
 func Reset():
 	$".".hide()

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://1o8hqun6wxrk"]
 
-[ext_resource type="Script" uid="uid://cb44ssjtduonn" path="res://scripts/Mao Gui/Mao Gui.gd" id="1_xfiyp"]
+[ext_resource type="Script" uid="uid://cb44ssjtduonn" path="res://scripts/Player/Mao Gui/Mao Gui.gd" id="1_xfiyp"]
 [ext_resource type="Texture2D" uid="uid://bhi6et2pdp4uy" path="res://assets/spritesheets/Bai Ling/catJumpRight.png" id="2_3e3u7"]
 [ext_resource type="Texture2D" uid="uid://cttgmstr7cy0t" path="res://assets/spritesheets/Bai Ling/catSprintLeft.png" id="3_ru1bo"]
 [ext_resource type="Texture2D" uid="uid://b8kqqb425330d" path="res://assets/spritesheets/Bai Ling/bailingDodge.png" id="4_1awv8"]

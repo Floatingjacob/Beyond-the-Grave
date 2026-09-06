@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://v1611apwtn5c"]
 
 [ext_resource type="Texture2D" uid="uid://bhi6et2pdp4uy" path="res://assets/spritesheets/Bai Ling/catJumpRight.png" id="1_5644b"]
-[ext_resource type="Script" uid="uid://bskd2lj68c5hq" path="res://scripts/Bai Ling/Bai Ling.gd" id="1_m6ug4"]
+[ext_resource type="Script" uid="uid://bskd2lj68c5hq" path="res://scripts/Player/Bai Ling/Bai Ling.gd" id="1_m6ug4"]
 [ext_resource type="Texture2D" uid="uid://cttgmstr7cy0t" path="res://assets/spritesheets/Bai Ling/catSprintLeft.png" id="2_m6ug4"]
 [ext_resource type="Texture2D" uid="uid://b8kqqb425330d" path="res://assets/spritesheets/Bai Ling/bailingDodge.png" id="3_nkkf3"]
 [ext_resource type="Texture2D" uid="uid://d25vkwl3g2ggd" path="res://assets/spritesheets/Bai Ling/bailingidle.png" id="4_r2dja"]
