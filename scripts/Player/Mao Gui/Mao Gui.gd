@@ -9,6 +9,8 @@ func _ready() -> void:
 	await super()
 
 func _physics_process(delta: float) -> void:
+	if Globals.possessing:
+		return
 	if is_on_floor():
 		if slamLand:
 			slamLand = false

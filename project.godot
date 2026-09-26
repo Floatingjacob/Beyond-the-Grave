@@ -25,7 +25,7 @@ config/icon="uid://cytn2uo7k7vpp"
 Globals="*res://scripts/misc/globals.gd"
 Binding="*res://scripts/misc/Binding.gd"
 Dialogue="*res://scripts/misc/Dialogue.gd"
-Ui="*res://reusables/ui.tscn"
+Ui="*res://reusables/ui/ui.tscn"
 
 [display]
 
@@ -41,6 +41,7 @@ project/assembly_name="Beyond The Grave"
 
 goodProjectile=""
 player=""
+possessionOrb=""
 
 [input]
 

@@ -1,12 +1,21 @@
 extends Node
 
 var hearts := 9
+const maxHearts := 9
+
 var isCat := false
 var inputAllowed := true
 var dialogueOpen := false
+var possessing := false
+
 var icons: Array[Texture2D] = [load("res://assets/textures/ui/transformCat.png"), load("res://assets/textures/ui/transformHuman.png")]
 var config = ConfigFile.new()
 var transformDebounce:SceneTreeTimer
+
+enum PossessableBody {None, Ghost}
+
+var possessedBody:PossessableBody = PossessableBody.None
+
 
 func _ready() -> void:
 	await get_tree().process_frame
@@ -28,4 +37,4 @@ func Prepare():
 		child.modulate = Color(1, 1, 1, 1)
 	isCat = false
 	inputAllowed = true
-	hearts = 9
+	hearts = maxHearts

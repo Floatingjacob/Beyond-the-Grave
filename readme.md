@@ -1,4 +1,20 @@
-# Changelog
+# The *Real* Devlog
+
+**9.19.26**
+
+* Began work on the possession orb
+
+**9.15.26**
+
+* Improved possession
+    * The player's body is paused while possessing
+    * The player cannot take damage while possessing
+
+**9.14.26**
+
+* Reworked the code that handles how health is displayed on the UI
+* Added basic possession logic
+* Modified the ghost so it can be possessed
 
 **9.6.26**
 

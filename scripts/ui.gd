@@ -25,3 +25,23 @@ func _process(_delta: float) -> void:
 		$"/root/Ui/Defend".hide()
 		$"/root/Ui/Joystick".hide()
 	$"/root/Ui/Defend".visible = !Globals.isCat and touch
+
+func updateHeartDisplay(newHearts:int, maxHearts:int):
+	var i = 0
+	
+	for child in $"Hearts".get_children():
+		child.modulate = Color(1, 1, 1, 0)
+		
+	for child in $"Hearts".get_children():
+		if i < maxHearts:
+			i += 1
+			child.modulate = Color(1, 1, 1, 0.5)
+		else: break
+		
+	i = 0
+		
+	for child in $"Hearts".get_children():
+		if i < newHearts:
+			i += 1
+			child.modulate = Color(1, 1, 1, 1)
+		else: break

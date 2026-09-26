@@ -27,6 +27,8 @@ func _ready() -> void:
 	Globals.transformDebounce = get_tree().create_timer(0.1)
 	
 func _physics_process(delta: float) -> void:
+	if Globals.possessing: 
+		return
 	if not is_on_floor():
 		$Animation.flip_h = lastDirection == -1
 		velocity += get_gravity() * delta
@@ -67,6 +69,7 @@ func _physics_process(delta: float) -> void:
 func toggleCat():
 	if Globals.transformDebounce.time_left != 0:
 		return
+		
 	Globals.isCat = !Globals.isCat
 	if Globals.isCat:
 		$"/root/Ui/Transform".texture_normal = Globals.icons[1]
@@ -87,7 +90,7 @@ func toggleCat():
 	Globals.transformDebounce = get_tree().create_timer(0.1) # Debouncing on mobile
 
 func _input(_event: InputEvent) -> void:
-	if !Globals.inputAllowed: return
+	if !Globals.inputAllowed or Globals.possessing: return
 	
 	if Input.is_action_just_pressed("toggle_cat"):
 		if is_on_floor():
@@ -119,14 +122,15 @@ func _input(_event: InputEvent) -> void:
 		onCooldown = false
 
 func hit():
-	if vulnerable:
+	if vulnerable and not Globals.possessing:
 		Globals.hearts -= 1
 		$SFX.stream = load("res://assets/audio/sfx/Hit.wav")
 		$SFX.play()
 		if Globals.hearts < 1:
 			get_tree().reload_current_scene()
 		else:
-			get_node("/root/Ui/Hearts/Heart" + str(abs(Globals.hearts - 9))).modulate = Color(1, 1, 1, 0.5)
+			Ui.updateHeartDisplay(Globals.hearts, Globals.maxHearts)
+			#get_node("/root/Ui/Hearts/Heart" + str(abs(Globals.hearts - 9))).modulate = Color(1, 1, 1, 0.5)
 
 func evalAnimation():
 	if Globals.isCat:
@@ -177,7 +181,8 @@ func dodge():
 	$Animation.modulate.a8 = 255
 	
 func _process(_delta: float) -> void:
-	$Camera.limit_left = Limit_Left
-	$Camera.limit_top = Limit_Top
-	$Camera.limit_right = Limit_Right
-	$Camera.limit_bottom = Limit_Bottom
+	if get_node_or_null("Camera") != null:
+		$Camera.limit_left = Limit_Left
+		$Camera.limit_top = Limit_Top
+		$Camera.limit_right = Limit_Right
+		$Camera.limit_bottom = Limit_Bottom

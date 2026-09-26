@@ -45,7 +45,6 @@ shadow_color = Color(0, 0, 0, 0.48235294)
 texture = ExtResource("3_dvwla")
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=2095225422]
-visible = false
 
 [node name="Collision" type="CollisionShape2D" parent="HurtBox" unique_id=1678017374]
 position = Vector2(0, 8)
